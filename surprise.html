@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Surprise 🎁💕</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe3ef,
+                    #e5dcff,
+                    #fff0d6
+                );
+
+            color: #55334f;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            overflow-x: hidden;
+
+        }
+
+        .container {
+
+            width: 100%;
+
+            max-width: 800px;
+
+            animation: appear 1.2s ease;
+
+        }
+
+        .gift {
+
+            font-size: 100px;
+
+            animation: bounce 2s infinite;
+
+        }
+
+        h1 {
+
+            font-size: 45px;
+
+            color: #8c3e70;
+
+            margin: 20px 0;
+
+        }
+
+        .intro {
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+
+        }
+
+        .surprise-box {
+
+            background:
+                rgba(255,255,255,0.7);
+
+            padding: 45px 35px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,0.12);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+        .surprise-box h2 {
+
+            color: #c44780;
+
+            margin-bottom: 20px;
+
+            font-size: 28px;
+
+        }
+
+        .surprise-box p {
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+        }
+
+        .btn {
+
+            margin-top: 30px;
+
+            padding: 15px 35px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #d14d8b;
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        .btn:hover {
+
+            transform: scale(1.08);
+
+            background: #b93876;
+
+        }
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 28px;
+
+            opacity: 0.6;
+
+            animation:
+                float 8s linear infinite;
+
+            pointer-events: none;
+
+        }
+
+        .one {
+            left: 10%;
+        }
+
+        .two {
+
+            left: 50%;
+
+            animation-delay: 2s;
+
+        }
+
+        .three {
+
+            left: 85%;
+
+            animation-delay: 4s;
+
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+        }
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+        @keyframes float {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(30px);
+
+            }
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-30px);
+
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .gift {
+                font-size: 75px;
+            }
+
+            .surprise-box {
+                padding: 35px 20px;
+            }
+
+            .surprise-box p {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="heart one">💖</div>
+    <div class="heart two">💕</div>
+    <div class="heart three">💗</div>
+
+
+    <div class="container">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <h1>
+            A Little Surprise For You 💕
+        </h1>
+
+        <p class="intro">
+
+            Jaanu, before you continue exploring
+            this little world I made for you...
+
+            <br>
+
+            I wanted to remind you of something. ❤️
+
+        </p>
+
+
+        <div class="surprise-box">
+
+            <h2>
+                You Are Loved 🌸
+            </h2>
+
+            <p>
+
+                You may not always realize how special
+                you are to the people around you.
+
+                <br><br>
+
+                But your smile, your craziness,
+                your kindness, your random conversations,
+                and even your silly little habits
+                have created so many beautiful memories.
+
+                <br><br>
+
+                This website is just a small way of saying...
+
+                <br><br>
+
+                <strong>
+                    "I'm really lucky to have you
+                    as my best friend." ❤️
+                </strong>
+
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="goToStory()">
+
+                📖 Let's Begin Our Story →
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function goToStory() {
+
+            window.location.href =
+                "story.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

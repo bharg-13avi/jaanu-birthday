@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scan Me 💕</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe3ef,
+                    #e5dcff,
+                    #fff0d6
+                );
+
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.8);
+
+            padding: 40px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #8c3e70;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #6f5268;
+            margin-bottom: 25px;
+        }
+
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .url {
+            font-size: 13px;
+            color: #8c3e70;
+            word-break: break-all;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Scan Me 💕</h1>
+
+        <p>
+            Scan this QR code to enter<br>
+            Jaanu's Birthday Surprise 🎂✨
+        </p>
+
+        <div id="qrcode"></div>
+
+        <div class="url">
+            Scan → Register → Login → Surprise 💖
+        </div>
+
+    </div>
+
+
+    <!-- QR CODE LIBRARY -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+    <script>
+
+        new QRCode(
+            document.getElementById("qrcode"),
+            {
+                text: "http://192.168.1.5:5500/register.html",
+
+                width: 250,
+
+                height: 250
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

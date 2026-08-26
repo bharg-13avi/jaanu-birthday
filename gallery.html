@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Our Memories 📸💕</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+                body {
+
+            font-family: "Poppins", Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe4ec,
+                    #fff7fa
+                );
+
+            min-height: 100vh;
+
+            color: #5a3d46;
+
+        }
+
+        /* FLOATING HEARTS */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            font-size: 22px;
+
+            animation:
+                floatHeart
+                8s linear infinite;
+
+            opacity: 0.7;
+
+            z-index: 0;
+
+        }
+
+
+        .heart:nth-child(1) {
+
+            left: 10%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .heart:nth-child(2) {
+
+            left: 30%;
+
+            animation-delay: 3s;
+
+        }
+
+
+        .heart:nth-child(3) {
+
+            left: 55%;
+
+            animation-delay: 0s;
+
+        }
+
+
+        .heart:nth-child(4) {
+
+            left: 80%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+
+            20% {
+
+                opacity: 0.8;
+
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* MAIN CONTAINER */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 50px 0;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+        /* HEADING */
+
+        .heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .heading .emoji {
+
+            font-size: 50px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .heading h1 {
+
+            font-size: 42px;
+
+            color: #d94f70;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .heading p {
+
+            font-size: 17px;
+
+            color: #80616a;
+
+        }
+
+
+        .heading span {
+
+            color: #e66a87;
+
+        }
+
+
+        /* GALLERY */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .photo {
+
+            background: white;
+
+            padding: 10px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(160, 70, 100, 0.15);
+
+            transition: 0.4s ease;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+        }
+
+
+        .photo:hover {
+
+            transform:
+                translateY(-10px)
+                rotate(1deg);
+
+            box-shadow:
+                0 15px 35px
+                rgba(160, 70, 100, 0.25);
+
+        }
+
+
+        .photo img {
+
+            width: 100%;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 13px;
+
+            display: block;
+
+            transition: 0.4s ease;
+
+        }
+
+
+        .photo:hover img {
+
+            transform:
+                scale(1.04);
+
+        }
+
+
+        .caption {
+
+            text-align: center;
+
+            padding:
+                15px 5px 8px;
+
+            font-size: 15px;
+
+            color: #79515d;
+
+        }
+
+
+        /* BOTTOM MESSAGE */
+
+        .message {
+
+            text-align: center;
+
+            margin:
+                50px auto 30px;
+
+            max-width: 700px;
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(160, 70, 100, 0.12);
+
+        }
+
+
+        .message h2 {
+
+            color: #d94f70;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .message p {
+
+            line-height: 1.7;
+
+            color: #74545e;
+
+        }
+
+
+        /* NEXT BUTTON */
+
+        .next-section {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+        }
+
+
+        .next-btn {
+
+            display: inline-block;
+
+            padding:
+                15px 35px;
+
+            background: #d94f70;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            font-size: 17px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 7px 18px
+                rgba(217, 79, 112, 0.3);
+
+        }
+
+
+        .next-btn:hover {
+
+            background: #c93e60;
+
+            transform:
+                translateY(-3px)
+                scale(1.05);
+
+        }
+
+
+        /* LIGHTBOX */
+
+        .lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            z-index: 999;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                rgba(30, 10, 18, 0.9);
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+        }
+
+
+        .lightbox img {
+
+            max-width: 90%;
+
+            max-height: 85%;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 40px
+                rgba(0, 0, 0, 0.4);
+
+        }
+
+
+        .close {
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 35px;
+
+            color: white;
+
+            font-size: 45px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .gallery {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .heading h1 {
+
+                font-size: 34px;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width: 92%;
+
+                padding: 35px 0;
+
+            }
+
+
+            .gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .photo img {
+
+                height: 300px;
+
+            }
+
+
+            .heading h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .heading p {
+
+                font-size: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart">
+        💗
+    </div>
+
+    <div class="heart">
+        💕
+    </div>
+
+    <div class="heart">
+        💖
+    </div>
+
+    <div class="heart">
+        💗
+    </div>
+
+
+
+    <div class="container">
+
+
+        <!-- HEADING -->
+
+        <div class="heading">
+
+            <div class="emoji">
+                📸💕
+            </div>
+
+
+            <h1>
+                Our Memories
+            </h1>
+
+
+            <p>
+
+                Every picture has a story...
+
+                and every story is special
+                because it's
+                <span>ours</span> 💗
+
+            </p>
+
+        </div>
+
+
+
+        <!-- GALLERY -->
+
+        <div class="gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo1.jpg')">
+
+                <img
+                    src="images/photo1.jpg"
+                    alt="Our Memory 1">
+
+                <div class="caption">
+
+                    💕 One of my favorite memories
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 2 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo2.jpg')">
+
+                <img
+                    src="images/photo2.jpg"
+                    alt="Our Memory 2">
+
+                <div class="caption">
+
+                    🌸 A beautiful day together
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 3 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo3.jpg')">
+
+                <img
+                    src="images/photo3.jpg"
+                    alt="Our Memory 3">
+
+                <div class="caption">
+
+                    😂 Our crazy moments
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 4 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo4.jpg')">
+
+                <img
+                    src="images/photo4.jpg"
+                    alt="Our Memory 4">
+
+                <div class="caption">
+
+                    🥹 A moment I'll never forget
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 5 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo5.jpg')">
+
+                <img
+                    src="images/photo5.jpg"
+                    alt="Our Memory 5">
+
+                <div class="caption">
+
+                    💖 Just us being us
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 6 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo6.jpg')">
+
+                <img
+                    src="images/photo6.jpg"
+                    alt="Our Memory 6">
+
+                <div class="caption">
+
+                    ✨ Another beautiful memory
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 7 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo7.jpg')">
+
+                <img
+                    src="images/photo7.jpg"
+                    alt="Our Memory 7">
+
+                <div class="caption">
+
+                    🫶 Forever grateful for you
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 8 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo8.jpg')">
+
+                <img
+                    src="images/photo8.jpg"
+                    alt="Our Memory 8">
+
+                <div class="caption">
+
+                    🌷 A memory worth keeping
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHOTO 9 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo9.jpg')">
+
+                <img
+                    src="images/photo9.jpg"
+                    alt="Our Memory 9">
+
+                <div class="caption">
+
+                    💗 Best friends forever
+
+                </div>
+
+            </div>
+
+            <!-- PHOTO 10 -->
+
+            <div
+                class="photo"
+                onclick="openImage('images/photo10.jpg')">
+
+                <img
+                    src="images/photo10.jpg"
+                    alt="Our Memory 10">
+
+                <div class="caption">
+
+                   💕 All ur beautiful photos
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <h2>
+                More Than Just Pictures 💌
+            </h2>
+
+
+            <p>
+
+                These aren't just photos.
+
+                They're little pieces of our story,
+
+                the laughs, the craziness,
+                the unforgettable moments
+
+                and all the memories that make
+                our friendship so special. 💕
+
+            </p>
+
+        </div>
+
+
+
+        <!-- NEXT PAGE BUTTON -->
+
+        <div class="next-section">
+
+            <a
+                href="game.html"
+                class="next-btn">
+
+                🎮 Let's Play a Game → 
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- LIGHTBOX -->
+
+    <div
+        class="lightbox"
+        id="lightbox">
+
+
+        <span
+            class="close"
+            onclick="closeImage()">
+
+            &times;
+
+        </span>
+
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt="Memory">
+
+
+    </div>
+
+
+
+    <script>
+
+
+        function openImage(image) {
+
+            document.getElementById("lightbox")
+                .style.display = "flex";
+
+            document.getElementById("lightboxImage")
+                .src = image;
+
+        }
+
+
+        function closeImage() {
+
+            document.getElementById("lightbox")
+                .style.display = "none";
+
+        }
+
+
+        // CLOSE WHEN CLICKING OUTSIDE IMAGE
+
+        document
+            .getElementById("lightbox")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === this) {
+
+                        closeImage();
+
+                    }
+
+                }
+            );
+
+
+    </script>
+
+
+</body>
+
+</html>

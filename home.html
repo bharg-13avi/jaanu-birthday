@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome Jaanu 💕</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            color: white;
+
+            overflow-x: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.45)
+                ),
+                url("images/jaan.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+
+            min-height: 80px;
+
+            background:
+                rgba(24, 111, 134, 0.95);
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 15px 35px;
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+        }
+
+
+        .logo {
+
+            font-size: 32px;
+
+            margin-right: auto;
+
+            white-space: nowrap;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
+
+
+        .nav-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+
+            white-space: nowrap;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #ffd1e3;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* LOGOUT BUTTON */
+
+        .logout {
+
+            color: white;
+
+            border: 1px solid
+                rgba(255,255,255,0.7);
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            background:
+                rgba(255,255,255,0.1);
+
+            font-size: 14px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .logout:hover {
+
+            background: white;
+
+            color: #186f86;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding:
+                120px 20px 60px;
+
+        }
+
+
+        .hero-content {
+
+            max-width: 850px;
+
+            animation:
+                appear 1.5s ease;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 75px;
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 4px 15px
+                rgba(0,0,0,0.5);
+
+        }
+
+
+        .hero h2 {
+
+            font-size: 38px;
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+
+            text-shadow:
+                0 3px 10px
+                rgba(0,0,0,0.5);
+
+        }
+
+
+        .hero p {
+
+            font-size: 21px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           WELCOME BOX
+        ========================= */
+
+        .welcome-box {
+
+            display: inline-block;
+
+            background:
+                rgba(30,30,30,0.55);
+
+            backdrop-filter: blur(8px);
+
+            padding: 25px 40px;
+
+            border-radius: 15px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .welcome-box p {
+
+            margin: 0;
+
+            font-size: 20px;
+
+            font-style: italic;
+
+        }
+
+
+        /* =========================
+           START BUTTON
+        ========================= */
+
+        .start-btn {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 15px 35px;
+
+            background: #d14d8b;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,0.3);
+
+        }
+
+
+        .start-btn:hover {
+
+            transform: scale(1.08);
+
+            background: #b93876;
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            opacity: 0.7;
+
+            pointer-events: none;
+
+            animation:
+                floatHeart
+                8s linear infinite;
+
+            z-index: 1;
+
+        }
+
+
+        .one {
+
+            left: 10%;
+
+        }
+
+
+        .two {
+
+            left: 50%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .three {
+
+            left: 85%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(30px);
+
+            }
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-30px);
+
+            }
+
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            nav {
+
+                min-height: 90px;
+
+                padding: 15px 20px;
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .logo {
+
+                margin: 0;
+
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+
+            }
+
+
+            .hero {
+
+                padding-top: 190px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 55px;
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .nav-links {
+
+                gap: 10px;
+
+            }
+
+
+            .nav-links a {
+
+                font-size: 14px;
+
+            }
+
+
+            .logout {
+
+                font-size: 13px;
+
+                padding: 7px 12px;
+
+            }
+
+
+            .hero {
+
+                padding:
+                    200px 15px 50px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 42px;
+
+            }
+
+
+            .hero h2 {
+
+                font-size: 26px;
+
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+
+            }
+
+
+            .welcome-box {
+
+                padding: 20px;
+
+            }
+
+
+            .welcome-box p {
+
+                font-size: 16px;
+
+            }
+
+
+            .start-btn {
+
+                font-size: 16px;
+
+                padding:
+                    14px 28px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+
+        <div class="logo">
+
+            🎂💕
+
+        </div>
+
+
+        <div class="nav-links">
+
+
+            <a href="home.html">
+                Home
+            </a>
+
+
+            <a href="welcome.html">
+                Welcome
+            </a>
+
+
+            <a href="surprise.html">
+                Surprise
+            </a>
+
+
+            <a href="story.html">
+                Our Story
+            </a>
+
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+
+            <a href="game.html">
+                Game
+            </a>
+
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+
+            <a href="reasons.html">
+                Reasons
+            </a>
+
+
+            <a href="letter.html">
+                Letter
+            </a>
+
+
+            <button
+                class="logout"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         FLOATING HEARTS
+    ========================= -->
+
+    <div class="heart one">
+        💖
+    </div>
+
+
+    <div class="heart two">
+        💕
+    </div>
+
+
+    <div class="heart three">
+        💗
+    </div>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+
+        <div class="hero-content">
+
+
+            <h1>
+                Welcome
+            </h1>
+
+
+            <h2>
+                To Jaanu's Birthday 💕
+            </h2>
+
+
+            <div class="welcome-box">
+
+
+                <p>
+
+                    Hey
+                    <span id="userName">
+                        Jaanu
+                    </span>
+                    ! 🎂❤️
+
+                    <br><br>
+
+                    A little surprise made
+                    especially for you...
+
+                    <br>
+
+                    filled with memories,
+                    laughter and lots of love. 💕
+
+                </p>
+
+
+            </div>
+
+
+            <br>
+
+
+            <a
+                href="welcome.html"
+                class="start-btn">
+
+                🎁 Start The Surprise →
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           CHECK LOGIN
+        ========================= */
+
+        const isLoggedIn =
+            localStorage.getItem(
+                "isLoggedIn"
+            );
+
+
+        if (isLoggedIn !== "true") {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+
+        /* =========================
+           DISPLAY REGISTERED NAME
+        ========================= */
+
+        const savedName =
+            localStorage.getItem(
+                "loggedInName"
+            );
+
+
+        if (savedName) {
+
+            document
+                .getElementById("userName")
+                .textContent = savedName;
+
+        }
+
+
+
+        /* =========================
+           LOGOUT
+        ========================= */
+
+        function logout() {
+
+            localStorage.removeItem(
+                "isLoggedIn"
+            );
+
+
+            localStorage.removeItem(
+                "loggedInName"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

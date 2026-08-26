@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account 💕</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+body {
+    min-height: 100vh;
+
+    font-family: Georgia, serif;
+
+    background:
+        linear-gradient(
+            rgba(255, 225, 240, 0.55),
+            rgba(225, 215, 250, 0.55)
+        ),
+        url("images/jaan1.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #55334f;
+
+    overflow-x: hidden;
+}
+
+
+        .container {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            background:
+                rgba(255,255,255,0.75);
+
+            backdrop-filter: blur(15px);
+
+            padding: 40px 35px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.15);
+
+            text-align: center;
+
+            animation:
+                appear 0.8s ease;
+
+        }
+
+
+        .icon {
+
+            font-size: 65px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        h1 {
+
+            color: #8c3e70;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .subtitle {
+
+            color: #8b6380;
+
+            margin-bottom: 30px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .input-group {
+
+            text-align: left;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #e0b8ce;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            font-size: 16px;
+
+            background:
+                rgba(255,255,255,0.9);
+
+        }
+
+
+        input:focus {
+
+            border-color: #d14d8b;
+
+            box-shadow:
+                0 0 8px
+                rgba(209,77,139,0.2);
+
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #d14d8b;
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            margin-top: 10px;
+
+            transition: 0.3s;
+
+        }
+
+
+        button:hover {
+
+            background: #b93876;
+
+            transform: scale(1.03);
+
+        }
+
+
+        .login-link {
+
+            margin-top: 22px;
+
+            font-size: 15px;
+
+        }
+
+
+        .login-link a {
+
+            color: #d14d8b;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+        }
+
+
+        .login-link a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .message {
+
+            margin-top: 15px;
+
+            font-weight: bold;
+
+            min-height: 20px;
+
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .container {
+
+                padding:
+                    35px 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ICON -->
+
+        <div class="icon">
+            💕
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+            Create Your Account
+        </h1>
+
+
+        <p class="subtitle">
+
+            Create an account to enter
+            Jaanu's birthday surprise. 🎂✨
+
+        </p>
+
+
+        <!-- REGISTER FORM -->
+
+        <form id="registerForm">
+
+
+            <!-- NAME -->
+
+            <div class="input-group">
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    minlength="4"
+                    required>
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    minlength="4"
+                    required>
+
+            </div>
+
+
+            <!-- REGISTER BUTTON -->
+
+            <button type="submit">
+
+                💖 Register
+
+            </button>
+
+
+        </form>
+
+
+        <!-- MESSAGE -->
+
+        <div
+            class="message"
+            id="message">
+        </div>
+
+
+        <!-- LOGIN LINK -->
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        document
+            .getElementById("registerForm")
+            .addEventListener(
+                "submit",
+                function(event) {
+
+                    event.preventDefault();
+
+
+                    /* GET VALUES */
+
+                    const name =
+                        document
+                            .getElementById("name")
+                            .value
+                            .trim();
+
+
+                    const email =
+                        document
+                            .getElementById("email")
+                            .value
+                            .trim()
+                            .toLowerCase();
+
+
+                    const password =
+                        document
+                            .getElementById("password")
+                            .value;
+
+
+                    const confirmPassword =
+                        document
+                            .getElementById("confirmPassword")
+                            .value;
+
+
+                    const message =
+                        document
+                            .getElementById("message");
+
+
+                    /* CHECK NAME */
+
+                    if (name === "") {
+
+                        message.textContent =
+                            "❌ Please enter your name.";
+
+                        message.style.color =
+                            "#c0395f";
+
+                        return;
+
+                    }
+
+
+                    /* CHECK PASSWORD */
+
+                    if (
+                        password !==
+                        confirmPassword
+                    ) {
+
+                        message.textContent =
+                            "❌ Passwords do not match.";
+
+                        message.style.color =
+                            "#c0395f";
+
+                        return;
+
+                    }
+
+
+                    /* CHECK PASSWORD LENGTH */
+
+                    if (
+                        password.length < 4
+                    ) {
+
+                        message.textContent =
+                            "❌ Password must contain at least 4 characters.";
+
+                        message.style.color =
+                            "#c0395f";
+
+                        return;
+
+                    }
+
+
+                    /* CHECK EXISTING ACCOUNT */
+
+                    const existingUser =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "birthdayUser"
+                            )
+                        );
+
+
+                    if (
+                        existingUser &&
+                        existingUser.email === email
+                    ) {
+
+                        message.textContent =
+                            "❌ This email is already registered.";
+
+                        message.style.color =
+                            "#c0395f";
+
+                        return;
+
+                    }
+
+
+                    /* CREATE USER */
+
+                    const user = {
+
+                        name: name,
+
+                        email: email,
+
+                        password: password
+
+                    };
+
+
+                    /* SAVE USER */
+
+                    localStorage.setItem(
+                        "birthdayUser",
+                        JSON.stringify(user)
+                    );
+
+
+                    /* SUCCESS MESSAGE */
+
+                    message.textContent =
+                        "💕 Registration successful!";
+
+                    message.style.color =
+                        "#8c3e70";
+
+
+                    /* CLEAR FORM */
+
+                    document
+                        .getElementById("registerForm")
+                        .reset();
+
+
+                    /* GO TO LOGIN */
+
+                    setTimeout(
+                        function() {
+
+                            window.location.href =
+                                "login.html";
+
+                        },
+                        1200
+                    );
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>

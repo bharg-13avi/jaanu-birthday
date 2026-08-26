@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Why You're Special 🌟💕</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe3ef,
+                    #e5dcff,
+                    #fff0d6
+                );
+
+            color: #55334f;
+
+            overflow-x: hidden;
+
+            padding: 40px 20px;
+
+        }
+
+
+
+        /* MAIN CONTAINER */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+
+            animation: appear 1.5s ease;
+
+        }
+
+
+        /* HEADER */
+
+        .star {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+            animation: glow 2s infinite;
+
+        }
+
+
+        h1 {
+
+            font-size: 46px;
+
+            color: #8c3e70;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .subtitle {
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        /* LETTER STYLE */
+
+        .letter {
+
+            background: rgba(255, 250, 250, 0.75);
+
+            padding: 50px 55px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.12);
+
+            backdrop-filter: blur(10px);
+
+            text-align: left;
+
+            position: relative;
+
+        }
+
+
+        /* TOP DECORATION */
+
+        .letter::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 7px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #f6a6c5,
+                    #c9a7f5,
+                    #f6a6c5
+                );
+
+            border-radius:
+                20px 20px 0 0;
+
+        }
+
+
+        .greeting {
+
+            font-size: 27px;
+
+            color: #8c3e70;
+
+            margin-bottom: 25px;
+
+            font-weight: bold;
+
+        }
+
+
+        .letter p {
+
+            font-size: 18px;
+
+            line-height: 2;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .highlight {
+
+            color: #d14d8b;
+
+            font-weight: bold;
+
+        }
+
+
+        /* CLOSING */
+
+        .closing {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+            color: #8c3e70;
+
+            font-size: 22px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* BUTTON */
+
+        .next-section {
+
+            text-align: center;
+
+            margin-top: 40px;
+
+            padding-bottom: 50px;
+
+        }
+
+
+        .next-btn {
+
+            padding:
+                15px 35px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #d14d8b;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 20px
+                rgba(209, 77, 139, 0.3);
+
+        }
+
+
+        .next-btn:hover {
+
+            transform: scale(1.08);
+
+            background: #b93876;
+
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 27px;
+
+            opacity: 0.6;
+
+            pointer-events: none;
+
+            animation:
+                floatHeart
+                8s linear infinite;
+
+            z-index: 0;
+
+        }
+
+
+        .one {
+
+            left: 10%;
+
+        }
+
+
+        .two {
+
+            left: 50%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .three {
+
+            left: 85%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes glow {
+
+            0%,
+            100% {
+
+                transform: scale(1);
+
+            }
+
+            50% {
+
+                transform: scale(1.15);
+
+            }
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(30px)
+                    rotate(15deg);
+
+            }
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-30px)
+                    rotate(-15deg);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding:
+                    30px 15px;
+
+            }
+
+
+            .star {
+
+                font-size: 55px;
+
+            }
+
+
+            h1 {
+
+                font-size: 34px;
+
+            }
+
+
+            .subtitle {
+
+                font-size: 16px;
+
+            }
+
+
+            .letter {
+
+                padding:
+                    40px 25px;
+
+            }
+
+
+            .greeting {
+
+                font-size: 22px;
+
+            }
+
+
+            .letter p {
+
+                font-size: 16px;
+
+                line-height: 1.85;
+
+            }
+
+
+            .closing {
+
+                font-size: 19px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart one">
+        💖
+    </div>
+
+    <div class="heart two">
+        💕
+    </div>
+
+    <div class="heart three">
+        💗
+    </div>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="star">
+            🌟
+        </div>
+
+
+        <h1>
+            Why You're Special 💕
+        </h1>
+
+
+        <div class="subtitle">
+
+            I could probably write a hundred reasons...
+
+            <br>
+
+            but honestly, some people are just
+            impossible to describe in a few words. 🌸
+
+        </div>
+
+
+
+        <!-- PARAGRAPH / LETTER -->
+
+        <div class="letter">
+
+
+            <div class="greeting">
+
+                Dear Jaanu, 💖
+
+            </div>
+
+
+            <p>
+
+                I don't think I can explain everything
+                that makes you special in just a few
+                sentences. There are so many little things
+                about you that I appreciate, and most of
+                them are things you probably don't even
+                realize. 🌸
+
+            </p>
+
+
+            <p>
+
+                First of all, I love the way your smile can
+                make everything feel a little better. 😊
+                Even on an ordinary day, somehow your
+                presence makes things feel more fun,
+                more comfortable, and more memorable.
+
+            </p>
+
+
+            <p>
+
+                You're also someone who actually listens.
+                No matter how random my stories are,
+                how many unnecessary details I tell you,
+                or how many times I repeat something,
+                you still listen. 😂 And honestly,
+                that means more to me than you know.
+
+            </p>
+
+
+            <p>
+
+                One of my favorite things about you is
+                how easily you make me laugh. 😂
+                Sometimes we don't even need a reason.
+                One random word, one silly expression,
+                or one stupid conversation is enough for
+                both of us to start laughing like crazy.
+
+            </p>
+
+
+            <p>
+
+                I also love that I can be completely myself
+                around you. I don't have to pretend,
+                act differently, or think too much about
+                what I'm saying. I can be weird, annoying,
+                emotional, dramatic, or completely crazy,
+                and somehow you still stay. 😂💕
+
+            </p>
+
+
+            <p>
+
+                You're the kind of person who makes
+                ordinary moments special. It doesn't
+                always have to be a big celebration or
+                something exciting. Sometimes it's just
+                talking for hours, sharing random things,
+                laughing at something nobody else would
+                understand, or simply knowing that you're
+                there. ❤️
+
+            </p>
+
+
+            <p>
+
+                And honestly, your craziness is one of
+                the reasons our friendship is so much fun.
+                😂 Life would definitely be a lot more
+                boring without all our random decisions,
+                unnecessary conversations, silly jokes,
+                and unforgettable moments.
+
+            </p>
+
+
+            <p>
+
+                But beyond all the jokes and craziness,
+                you're genuinely important to me. ❤️
+                Having someone who knows so many sides
+                of me and still chooses to stay in my life
+                is something I will always be grateful for.
+
+            </p>
+
+
+            <p>
+
+                I don't know exactly where life will take
+                us in the future. Things will change,
+                we'll grow, we'll become busy, and maybe
+                life will take us in different directions.
+                But I really hope that no matter what
+                happens, we never completely lose this
+                friendship.
+
+            </p>
+
+
+            <p>
+
+                I hope we continue collecting memories,
+                laughing at stupid things, having random
+                conversations, annoying each other,
+                supporting each other, and celebrating
+                every little achievement together. 🥹💕
+
+            </p>
+
+
+            <p>
+
+                And if you ever forget how special you are,
+                I hope you remember this:
+
+                <span class="highlight">
+                    you don't have to be perfect to be
+                    important to someone.
+                </span>
+
+                You are already special simply because
+                you are you. 🌷
+
+            </p>
+
+
+            <div class="closing">
+
+                So, Jaanu... 💖
+
+                <br><br>
+
+                Thank you for being you.
+
+                <br>
+
+                Thank you for being my best friend.
+
+                <br>
+
+                And thank you for becoming such a
+                beautiful part of my life. 🌸
+
+                <br><br>
+
+                I hope our friendship stays crazy,
+                beautiful, and unforgettable forever. 🥹❤️
+
+                <br><br>
+
+                <strong>
+                    Always stay the amazing person you are. 💕
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NEXT BUTTON -->
+
+        <div class="next-section">
+
+        <button
+            class="next-btn"
+            onclick="goToLetter()">
+            💌 A Letter For You →
+        </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function goToLetter() {
+
+            window.location.href =
+                "letter.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```

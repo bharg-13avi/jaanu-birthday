@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Our Crazy Memories 😂💕</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+body {
+
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe5ef,
+                    #eadcff
+                );
+
+            color: #5a3152;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
+
+        }
+
+
+
+        /* MAIN CONTAINER */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            text-align: center;
+
+            animation:
+                appear 1.5s ease;
+
+        }
+
+
+        /* TITLE EMOJI */
+
+        .emoji {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+            animation:
+                float 2s ease-in-out infinite;
+
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+
+            color: #8c3e70;
+
+        }
+
+
+        .subtitle {
+
+            font-size: 18px;
+
+            margin-bottom: 40px;
+
+            color: #704a67;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* MEMORY GRID */
+
+        .memories {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        /* MEMORY CARD */
+
+        .memory-card {
+
+            background: #fffaf5;
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.12);
+
+            text-align: left;
+
+            transition: 0.4s;
+
+            animation:
+                cardAppear 1s ease;
+
+        }
+
+
+        .memory-card:hover {
+
+            transform:
+                translateY(-8px)
+                rotate(1deg);
+
+            box-shadow:
+                0 20px 40px
+                rgba(0, 0, 0, 0.18);
+
+        }
+
+
+        /* PHOTO */
+
+        .memory-photo {
+
+            width: 100%;
+
+            height: 240px;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            margin-bottom: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8c8dc,
+                    #d9c7f5
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .memory-photo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+
+        }
+
+
+        .memory-card:hover
+        .memory-photo img {
+
+            transform:
+                scale(1.05);
+
+        }
+
+
+        /* MEMORY TITLE */
+
+        .memory-card h2 {
+
+            color: #8c3e70;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* MEMORY TEXT */
+
+        .memory-card p {
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: #67485f;
+
+        }
+
+
+        /* QUOTE */
+
+        .quote {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f6,
+                    #f5edff
+                );
+
+            padding: 25px;
+
+            border-left:
+                5px solid #d14d8b;
+
+            border-radius: 12px;
+
+            margin-top: 35px;
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            color: #70405f;
+
+        }
+
+
+        /* BUTTON */
+
+        .next-section {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+        }
+
+
+        .next-btn {
+
+            padding:
+                15px 35px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #d14d8b;
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 20px
+                rgba(209, 77, 139, 0.3);
+
+        }
+
+
+        .next-btn:hover {
+
+            transform:
+                scale(1.08);
+
+            background: #b93876;
+
+        }
+
+
+        /* HOME BUTTON */
+
+        .home-btn {
+
+            display: block;
+
+            margin-top: 20px;
+
+            color: #8c3e70;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+        }
+
+
+        .home-btn:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            opacity: 0.6;
+
+            animation:
+                floatHeart
+                8s linear infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        .heart.one {
+
+            left: 10%;
+
+        }
+
+
+        .heart.two {
+
+            left: 50%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .heart.three {
+
+            left: 85%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px);
+
+            }
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(30px)
+                    rotate(15deg);
+
+            }
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-30px)
+                    rotate(-15deg);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            body {
+
+                padding:
+                    30px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 34px;
+
+            }
+
+
+            .emoji {
+
+                font-size: 55px;
+
+            }
+
+
+            .memories {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .memory-photo {
+
+                height: 250px;
+
+            }
+
+
+            .memory-card p {
+
+                font-size: 15px;
+
+            }
+
+
+            .quote {
+
+                font-size: 17px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart one">
+        💖
+    </div>
+
+    <div class="heart two">
+        💕
+    </div>
+
+    <div class="heart three">
+        💗
+    </div>
+
+
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="emoji">
+
+            😂💕
+
+        </div>
+
+
+        <h1>
+
+            Our Crazy Memories
+
+        </h1>
+
+
+        <div class="subtitle">
+
+            Some memories make us smile...<br>
+
+            And some make us wonder,
+
+            <em>
+                "How were we even this crazy?" 😂
+            </em>
+
+        </div>
+
+
+
+        <!-- MEMORIES -->
+
+        <div class="memories">
+
+
+            <!-- MEMORY 1 -->
+
+            <div class="memory-card">
+
+                <div class="memory-photo">
+
+                    <img
+                        src="images/memory1.jpg"
+                        alt="Our Memory">
+
+                </div>
+
+                <h2>
+                    The Random Conversations 😂
+                </h2>
+
+                <p>
+
+                    We can literally start talking
+                    about one completely normal topic
+                    and somehow end up discussing
+                    the most random things ever.
+
+                    And somehow those conversations
+                    become some of my favorite memories. 😂💕
+
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMORY 2 -->
+
+            <div class="memory-card">
+
+                <div class="memory-photo">
+
+                    <img
+                        src="images/memory2.jpg"
+                        alt="Our Memory">
+
+                </div>
+
+                <h2>
+                    The Laughing Sessions 🤣
+                </h2>
+
+                <p>
+
+                    Sometimes we don't even need
+                    a reason to laugh.
+
+                    One stupid joke...
+
+                    One look...
+
+                    And suddenly we're laughing
+                    like crazy people. 😂
+
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMORY 3 -->
+
+            <div class="memory-card">
+
+                <div class="memory-photo">
+
+                    <img
+                        src="images/memory3.jpg"
+                        alt="Our Memory">
+
+                </div>
+
+                <h2>
+                    Our Silly Moments 🥹
+                </h2>
+
+                <p>
+
+                    The silly things we do may not
+                    make sense to anyone else.
+
+                    But that's exactly what makes
+                    them special.
+
+                    They're little moments that
+                    belong only to us. 💕
+
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMORY 4 -->
+
+            <div class="memory-card">
+
+                <div class="memory-photo">
+
+                    <img
+                        src="images/memory4.jpg"
+                        alt="Our Memory">
+
+                </div>
+
+                <h2>
+                    The Unplanned Moments 🌸
+                </h2>
+
+                <p>
+
+                    Some of the best memories were
+                    never planned.
+
+                    They just happened...
+
+                    And somehow turned into moments
+                    I'll always remember. ❤️
+
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMORY 5 -->
+
+            <div class="memory-card">
+
+                <div class="memory-photo">
+
+                    <img
+                        src="images/memory5.jpg"
+                        alt="Our Memory">
+
+                </div>
+
+                <h2>
+                    Our Crazy Photos 📸
+                </h2>
+
+                <p>
+
+                    Not every picture needs to be
+                    perfect.
+
+                    Sometimes the funniest,
+                    weirdest and most random photos
+                    become the best ones. 😂💗
+
+                </p>
+
+            </div>
+
+
+
+            <!-- MEMORY 6 -->
+
+            <div class="memory-card">
+
+                <div class="memory-photo">
+
+                    <img
+                        src="images/memory6.jpg"
+                        alt="Our Memory">
+
+                </div>
+
+                <h2>
+                    Just Being Us 🫶
+                </h2>
+
+                <p>
+
+                    No pretending.
+
+                    No trying to be perfect.
+
+                    Just two best friends being
+                    completely themselves.
+
+                    And honestly, that's my favorite
+                    kind of memory. 💖
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- QUOTE -->
+
+        <div class="quote">
+
+            💕 <strong>Some memories fade with time...</strong>
+
+            <br><br>
+
+            But the memories we create together
+            will always have a special place in my heart.
+
+            <br><br>
+
+            Here's to all the memories we've already made
+            and all the crazy ones still waiting for us. 🥹✨
+
+        </div>
+
+
+
+        <!-- NEXT BUTTON -->
+
+        <div class="next-section">
+
+            <button
+                class="next-btn"
+                onclick="goToReasons()">
+
+                🌟 Why You're Special →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function goToReasons() {
+
+            window.location.href =
+                "reasons.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

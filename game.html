@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Our Little Game 🎮💕</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e7dcff,
+                    #ffe0ed,
+                    #fff0d2
+                );
+
+            color: #55334f;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px 15px;
+
+            overflow-x: hidden;
+
+        }
+
+
+
+        .container {
+
+            width: 100%;
+
+            max-width: 750px;
+
+            text-align: center;
+
+            animation: appear 1s ease;
+
+        }
+
+
+        /* HEADER */
+
+        .game-icon {
+
+            font-size: 65px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+
+            color: #8c3e70;
+
+        }
+
+
+        .intro {
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* QUIZ CARD */
+
+        .quiz-card {
+
+            background:
+                rgba(255,255,255,0.78);
+
+            padding: 35px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,0.15);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        .question-number {
+
+            color: #d14d8b;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .question {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* ANSWERS */
+
+        .answers {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .answer {
+
+            padding: 16px;
+
+            border: 2px solid
+                rgba(209,77,139,0.2);
+
+            border-radius: 18px;
+
+            background: white;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .answer:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                #d14d8b;
+
+            background:
+                #fff2f7;
+
+        }
+
+
+        .answer.correct {
+
+            background:
+                #d9f7df;
+
+            border-color:
+                #54ad6a;
+
+        }
+
+
+        .answer.wrong {
+
+            background:
+                #ffe0e0;
+
+            border-color:
+                #e56a6a;
+
+        }
+
+
+        /* NEXT BUTTON */
+
+        .next-question {
+
+            margin-top: 25px;
+
+            padding:
+                13px 30px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background:
+                #d14d8b;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            display: none;
+
+        }
+
+
+        .next-question:hover {
+
+            transform:
+                scale(1.05);
+
+            background:
+                #b93876;
+
+        }
+
+
+        /* PROGRESS */
+
+        .progress {
+
+            margin-top: 20px;
+
+            font-size: 14px;
+
+            color: #876278;
+
+        }
+
+
+        /* RESULT */
+
+        .result {
+
+            display: none;
+
+            background:
+                rgba(255,255,255,0.82);
+
+            padding: 45px 30px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,0.15);
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .result-emoji {
+
+            font-size: 75px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .score {
+
+            font-size: 40px;
+
+            color: #d14d8b;
+
+            font-weight: bold;
+
+            margin: 15px 0;
+
+        }
+
+
+        .result-message {
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .surprise-btn {
+
+            padding:
+                15px 35px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background:
+                #d14d8b;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .surprise-btn:hover {
+
+            transform:
+                scale(1.08);
+
+            background:
+                #b93876;
+
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            opacity: 0.6;
+
+            pointer-events: none;
+
+            animation:
+                floatHeart
+                8s linear infinite;
+
+            z-index: 0;
+
+        }
+
+
+        .one {
+
+            left: 10%;
+
+        }
+
+
+        .two {
+
+            left: 50%;
+
+            animation-delay:
+                2s;
+
+        }
+
+
+        .three {
+
+            left: 85%;
+
+            animation-delay:
+                4s;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(30px);
+
+            }
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-30px);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .game-icon {
+
+                font-size: 55px;
+
+            }
+
+
+            .intro {
+
+                font-size: 16px;
+
+            }
+
+
+            .quiz-card {
+
+                padding:
+                    25px 18px;
+
+            }
+
+
+            .question {
+
+                font-size: 20px;
+
+            }
+
+
+            .answers {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .answer {
+
+                font-size: 15px;
+
+            }
+
+
+            .result {
+
+                padding:
+                    35px 20px;
+
+            }
+
+
+            .result-emoji {
+
+                font-size: 60px;
+
+            }
+
+
+            .score {
+
+                font-size: 34px;
+
+            }
+
+
+            .result-message {
+
+                font-size: 17px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart one">
+        💖
+    </div>
+
+    <div class="heart two">
+        💕
+    </div>
+
+    <div class="heart three">
+        💗
+    </div>
+
+
+
+    <div class="container">
+
+
+        <!-- GAME -->
+
+        <div id="game">
+
+
+            <div class="game-icon">
+                🎮
+            </div>
+
+
+            <h1>
+                How Well Do You Know Us?
+            </h1>
+
+
+            <p class="intro">
+
+                Okay bestie... 😂💕
+
+                <br>
+
+                Let's see how well you remember
+                our friendship!
+
+            </p>
+
+
+            <div class="quiz-card">
+
+
+                <div
+                    class="question-number"
+                    id="questionNumber">
+
+                    Question 1 of 10
+
+                </div>
+
+
+                <div
+                    class="question"
+                    id="question">
+
+                    Loading question...
+
+                </div>
+
+
+                <div
+                    class="answers"
+                    id="answers">
+
+                </div>
+
+
+                <button
+                    class="next-question"
+                    id="nextButton"
+                    onclick="nextQuestion()">
+
+                    Next Question →
+
+                </button>
+
+
+                <div
+                    class="progress"
+                    id="progress">
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div
+            class="result"
+            id="result">
+
+
+            <div
+                class="result-emoji"
+                id="resultEmoji">
+
+                🎉
+
+            </div>
+
+
+            <h1>
+                You Finished! 💖
+            </h1>
+
+
+            <div
+                class="score"
+                id="score">
+
+                0 / 10
+
+            </div>
+
+
+            <p
+                class="result-message"
+                id="resultMessage">
+
+            </p>
+
+
+            <button
+                class="surprise-btn"
+                onclick="goToMemories()">
+
+                📸 Continue Our Memories →
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /*
+
+        ==========================================
+        OUR FRIENDSHIP QUESTIONS
+        ==========================================
+
+        correct:
+        0 = first answer
+        1 = second answer
+        2 = third answer
+        3 = fourth answer
+        4 = fiveth answer
+        */
+
+
+        const questions = [
+
+
+            /* QUESTION 1 */
+
+            {
+
+                question:
+                    "What do we do best together? 😂",
+
+                answers: [
+
+                    "Laugh 😂",
+
+                    "Sleep 😴",
+
+                    "Study 📚",
+
+                    "Stay silent 🤐"
+
+                ],
+
+                correct: 3
+
+            },
+
+
+            /* QUESTION 2 */
+
+            {
+
+                question:
+                    "What usually happens when we start talking?",
+
+                answers: [
+
+                    "We stop after 2 minutes",
+
+                    "We talk forever 😂",
+
+                    "We fall asleep",
+
+                    "We start arguing"
+
+                ],
+
+                correct: 3
+
+            },
+
+
+            /* QUESTION 3 */
+
+            {
+
+                question:
+                    "What is our friendship full of? 💕",
+
+                answers: [
+
+                    "Memories 💕",
+
+                    "Homework 📚",
+
+                    "Silence 🤐",
+
+                    "Seriousness 😐"
+
+                ],
+
+                correct: 2
+
+            },
+
+
+            /* QUESTION 4 */
+
+            {
+
+                question:
+                    "What kind of memories do we make?",
+
+                answers: [
+
+                    "Only boring ones",
+
+                    "Crazy ones 😂",
+
+                    "None",
+
+                    "Only school memories"
+
+                ],
+
+                correct: 2
+
+            },
+
+
+            /* QUESTION 5 */
+
+            {
+
+                question:
+                    "Who is my favorite bestie? ❤️",
+
+                answers: [
+
+                    "You ❤️",
+
+                    "Someone else",
+
+                    "My laptop 💻",
+
+                    "My pillow 😂"
+
+                ],
+
+                correct: 1
+
+            },
+
+
+            /* QUESTION 6 */
+
+            {
+
+                question:
+                    "What can turn into a crazy conversation?",
+
+                answers: [
+
+                    "One random topic 😂",
+
+                    "Only serious topics",
+
+                    "Nothing",
+
+                    "Homework"
+
+                ],
+
+                correct: 2
+
+            },
+
+
+            /* QUESTION 7 */
+
+            {
+
+                question:
+                    "What happens when one of us tells a silly joke?",
+
+                answers: [
+
+                    "We start laughing 😂",
+
+                    "We become serious",
+
+                    "We go home",
+
+                    "We start studying"
+
+                ],
+
+                correct: 0
+
+            },
+
+
+            /* QUESTION 8 */
+
+            {
+
+                question:
+                    "What makes our friendship special? 💖",
+
+                answers: [
+
+                    "Being ourselves",
+
+                    "Never talking",
+
+                    "Only taking photos",
+
+                    "Understanding each other"
+
+                ],
+
+                correct: 3
+
+            },
+
+
+            /* QUESTION 9 */
+
+            {
+
+                question:
+                    "What kind of moments become our favorite memories?",
+
+                answers: [
+
+                    "Only planned moments",
+
+                    "Random and unplanned moments 🌸",
+
+                    "Only big celebrations",
+
+                    "Only school events"
+
+                ],
+
+                correct: 1
+
+            },
+
+
+            /* QUESTION 10 */
+
+            {
+
+                question:
+                    "What do I want us to have in the future? 🥹💕",
+
+                answers: [
+
+                    "More memories together",
+
+                    "Less conversations",
+
+                    "More photos together",
+
+                    "A good future together"
+
+                ],
+
+                correct: 3
+
+            }
+
+
+        ];
+
+
+        let currentQuestion = 0;
+
+        let score = 0;
+
+        let answered = false;
+
+
+
+        const questionElement =
+            document.getElementById(
+                "question"
+            );
+
+
+        const answersElement =
+            document.getElementById(
+                "answers"
+            );
+
+
+        const questionNumber =
+            document.getElementById(
+                "questionNumber"
+            );
+
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+
+        const progress =
+            document.getElementById(
+                "progress"
+            );
+
+
+
+        /* LOAD QUESTION */
+
+        function loadQuestion() {
+
+            answered = false;
+
+            nextButton.style.display =
+                "none";
+
+
+            const q =
+                questions[currentQuestion];
+
+
+            questionNumber.textContent =
+                `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+            questionElement.textContent =
+                q.question;
+
+
+            answersElement.innerHTML =
+                "";
+
+
+            progress.textContent =
+                `💕 Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+            q.answers.forEach(
+                (answer, index) => {
+
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.className =
+                        "answer";
+
+
+                    button.type =
+                        "button";
+
+
+                    button.textContent =
+                        answer;
+
+
+                    button.onclick =
+                        () =>
+                        checkAnswer(
+                            index,
+                            button
+                        );
+
+
+                    answersElement.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* CHECK ANSWER */
+
+        function checkAnswer(
+            selected,
+            button
+        ) {
+
+
+            if (answered) {
+
+                return;
+
+            }
+
+
+            answered = true;
+
+
+            const correctAnswer =
+                questions[
+                    currentQuestion
+                ].correct;
+
+
+            const allAnswers =
+                document.querySelectorAll(
+                    ".answer"
+                );
+
+
+            if (
+                selected ===
+                correctAnswer
+            ) {
+
+
+                button.classList.add(
+                    "correct"
+                );
+
+
+                score++;
+
+
+            }
+
+            else {
+
+
+                button.classList.add(
+                    "wrong"
+                );
+
+
+                allAnswers[
+                    correctAnswer
+                ].classList.add(
+                    "correct"
+                );
+
+            }
+
+
+            /* SHOW NEXT BUTTON */
+
+            nextButton.style.display =
+                "inline-block";
+
+
+            /* CHANGE BUTTON TEXT ON LAST QUESTION */
+
+            if (
+                currentQuestion ===
+                questions.length - 1
+            ) {
+
+                nextButton.textContent =
+                    "See My Score 🎉";
+
+            }
+
+        }
+
+
+
+        /* NEXT QUESTION */
+
+        function nextQuestion() {
+
+
+            currentQuestion++;
+
+
+            if (
+                currentQuestion <
+                questions.length
+            ) {
+
+
+                loadQuestion();
+
+
+            }
+
+            else {
+
+
+                showResult();
+
+            }
+
+        }
+
+
+
+        /* SHOW RESULT */
+
+        function showResult() {
+
+
+            document.getElementById(
+                "game"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "result"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "score"
+            ).textContent =
+                `${score} / ${questions.length}`;
+
+
+            const message =
+                document.getElementById(
+                    "resultMessage"
+                );
+
+
+            const emoji =
+                document.getElementById(
+                    "resultEmoji"
+                );
+
+
+            /* PERFECT SCORE */
+
+            if (
+                score ===
+                questions.length
+            ) {
+
+
+                emoji.textContent =
+                    "👑";
+
+
+                message.textContent =
+                    "OMG! You got everything right! 😂❤️ You are officially the Best Friend Champion! You know our friendship way too well! 🥹💕";
+
+            }
+
+
+            /* VERY GOOD */
+
+            else if (
+                score >= 8
+            ) {
+
+
+                emoji.textContent =
+                    "🎉";
+
+
+                message.textContent =
+                    "Wowww! You really know our friendship! 💕 Almost perfect, bestie! 😂❤️";
+
+            }
+
+
+            /* GOOD */
+
+            else if (
+                score >= 5
+            ) {
+
+
+                emoji.textContent =
+                    "🥰";
+
+
+                message.textContent =
+                    "Not bad, bestie! 😂💕 You definitely remember many of our crazy moments!";
+
+            }
+
+
+            /* LOW SCORE */
+
+            else {
+
+
+                emoji.textContent =
+                    "😂";
+
+
+                message.textContent =
+                    "Hmmm... looks like we need to make MANY more memories together! 😂❤️ Don't worry, the best memories are still waiting for us! 🥹💕";
+
+            }
+
+        }
+
+
+
+        /* GO TO MEMORIES */
+
+        function goToMemories() {
+
+            window.location.href =
+                "memories.html";
+
+        }
+
+
+
+        /* START GAME */
+
+        loadQuestion();
+
+    </script>
+
+
+</body>
+
+</html>

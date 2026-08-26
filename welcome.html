@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Surprise for Jaanu 💖</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body { 
+            min-height: 100vh; 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient( 135deg, #ffe0ec, #e8d9ff ); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+            color: #632b55; 
+        }
+
+        /* MAIN CONTAINER */
+
+        .container {
+
+            width: 90%;
+
+            max-width: 700px;
+
+            text-align: center;
+
+            background:
+                rgba(255, 255, 255, 0.35);
+
+            padding: 50px 30px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.12);
+
+            backdrop-filter: blur(10px);
+
+            animation:
+                appear 1.5s ease;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        /* GIFT */
+
+        .emoji {
+
+            font-size: 75px;
+
+            margin-bottom: 20px;
+
+            animation:
+                bounce 2s infinite;
+
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            font-size: 42px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* MESSAGE */
+
+        p {
+
+            font-size: 20px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .highlight {
+
+            color: #d14d8b;
+
+            font-weight: bold;
+
+        }
+
+
+        /* BUTTON */
+
+        .next-btn {
+
+            border: none;
+
+            padding: 15px 35px;
+
+            border-radius: 30px;
+
+            background: #d14d8b;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px
+                rgba(209, 77, 139, 0.3);
+
+            transition: 0.3s;
+
+        }
+
+
+        .next-btn:hover {
+
+            transform:
+                scale(1.08);
+
+            background:
+                #b93876;
+
+        }
+
+
+        /* FLOATING DECORATIONS */
+
+        .floating {
+
+            position: absolute;
+
+            font-size: 30px;
+
+            animation:
+                float 7s linear infinite;
+
+            opacity: 0.7;
+
+            z-index: 1;
+
+        }
+
+
+        .f1 {
+
+            left: 10%;
+
+            bottom: -50px;
+
+            animation-delay: 0s;
+
+        }
+
+
+        .f2 {
+
+            left: 30%;
+
+            bottom: -50px;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .f3 {
+
+            left: 70%;
+
+            bottom: -50px;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .f4 {
+
+            left: 90%;
+
+            bottom: -50px;
+
+            animation-delay: 3s;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.8);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes bounce {
+
+            0%, 100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+
+            50% {
+
+                transform:
+                    translateY(-15px);
+
+            }
+
+        }
+
+
+        @keyframes float {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+
+            }
+
+
+            50% {
+
+                transform:
+                    translateX(40px)
+                    rotate(20deg);
+
+            }
+
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-40px)
+                    rotate(-20deg);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                padding:
+                    35px 20px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            p {
+
+                font-size: 17px;
+
+            }
+
+
+            .emoji {
+
+                font-size: 60px;
+
+            }
+
+
+            .next-btn {
+
+                padding:
+                    13px 25px;
+
+                font-size: 16px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- FLOATING DECORATIONS -->
+
+    <div class="floating f1">
+        💖
+    </div>
+
+    <div class="floating f2">
+        🌸
+    </div>
+
+    <div class="floating f3">
+        💕
+    </div>
+
+    <div class="floating f4">
+        ✨
+    </div>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+
+
+        <div class="emoji">
+
+            🎁
+
+        </div>
+
+
+        <h1>
+
+            Hey Bestie! 💕
+
+        </h1>
+
+
+        <p>
+
+            Today isn't just another day...
+
+            <br><br>
+
+            It's the day a very special person
+            came into this world. 🌸
+
+            <br><br>
+
+            And that person is
+            <span class="highlight">
+                YOU, Jaanu!
+            </span>
+
+            💖
+
+            <br><br>
+
+            So I created something
+            <span class="highlight">
+                just for you
+            </span>.
+
+            <br>
+
+            A little journey through our memories,
+            laughs, crazy moments and everything
+            that makes our friendship special. 💕
+
+        </p>
+
+
+        <button
+            class="next-btn"
+            onclick="goToStory()">
+
+            Our Story Begins → 📖
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+   /* CHECK LOGIN */
+
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn !== "true") {
+
+        window.location.href =
+            "login.html";
+
+    }
+
+        function goToStory() {
+
+            window.location.href =
+                "story.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```

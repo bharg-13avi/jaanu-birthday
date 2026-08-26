@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>A Letter For Jaanu 💌</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe5ef,
+                    #eadcff
+                );
+
+            color: #5a3152;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 40px 20px;
+
+            overflow-x: hidden;
+
+        }
+
+
+
+        /* MAIN CONTAINER */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            text-align: center;
+
+            animation:
+                appear 1.5s ease;
+
+        }
+
+
+        /* ENVELOPE */
+
+        .envelope {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+            animation:
+                float 2s ease-in-out infinite;
+
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            font-size: 45px;
+
+            margin-bottom: 35px;
+
+            color: #8c3e70;
+
+        }
+
+
+        /* LETTER */
+
+        .letter {
+
+            background: #fffaf5;
+
+            padding: 55px 50px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0, 0, 0, 0.15);
+
+            text-align: left;
+
+            position: relative;
+
+        }
+
+
+        /* PAPER EFFECT */
+
+        .letter::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 8px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #f6a6c5,
+                    #c9a7f5,
+                    #f6a6c5
+                );
+
+            border-radius:
+                8px 8px 0 0;
+
+        }
+
+
+        /* GREETING */
+
+        .greeting {
+
+            font-size: 25px;
+
+            margin-bottom: 25px;
+
+            color: #8c3e70;
+
+        }
+
+
+        /* LETTER TEXT */
+
+        .letter p {
+
+            font-size: 18px;
+
+            line-height: 2;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        /* SPECIAL PARAGRAPH */
+
+        .special-message {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0f6,
+                    #f5edff
+                );
+
+            padding: 22px;
+
+            border-left:
+                5px solid #d14d8b;
+
+            border-radius: 12px;
+
+            margin:
+                25px 0;
+
+            font-size: 18px;
+
+            line-height: 2;
+
+        }
+
+
+        /* FINAL MESSAGE */
+
+        .final-message {
+
+            text-align: center;
+
+            font-size: 20px;
+
+            color: #8c3e70;
+
+            font-weight: bold;
+
+            margin-top: 30px;
+
+        }
+
+
+        /* SIGNATURE */
+
+        .signature {
+
+            margin-top: 35px;
+
+            font-size: 22px;
+
+            color: #8c3e70;
+
+        }
+
+
+        /* FINAL ENDING */
+
+        .ending {
+
+            margin-top: 45px;
+
+            padding: 45px 30px;
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.12);
+
+            text-align: center;
+
+            animation:
+                endingAppear 2s ease;
+
+        }
+
+
+        /* ENDING HEART */
+
+        .ending-heart {
+
+            font-size: 65px;
+
+            margin-bottom: 15px;
+
+            animation:
+                finalHeart
+                2s ease-in-out infinite;
+
+        }
+
+
+        /* ENDING TITLE */
+
+        .ending h2 {
+
+            color: #8c3e70;
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* ENDING TEXT */
+
+        .ending p {
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+            color: #67485f;
+
+        }
+
+
+        .ending strong {
+
+            color: #d14d8b;
+
+            font-size: 21px;
+
+        }
+
+
+        /* ENDING HEARTS */
+
+        .final-hearts {
+
+            font-size: 28px;
+
+            margin-top: 25px;
+
+            letter-spacing: 10px;
+
+        }
+
+
+        /* THE END */
+
+        .the-end {
+
+            margin-top: 30px;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #8c3e70;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        /* FLOATING HEARTS */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            opacity: 0.6;
+
+            animation:
+                floatHeart
+                8s linear infinite;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        .heart.one {
+
+            left: 10%;
+
+        }
+
+
+        .heart.two {
+
+            left: 50%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .heart.three {
+
+            left: 85%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        /* ANIMATIONS */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px);
+
+            }
+
+        }
+
+
+        @keyframes finalHeart {
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.18);
+
+            }
+
+        }
+
+
+        @keyframes endingAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(0.95);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                bottom: -50px;
+
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateX(30px)
+                    rotate(15deg);
+
+            }
+
+            100% {
+
+                bottom: 110%;
+
+                transform:
+                    translateX(-30px)
+                    rotate(-15deg);
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding:
+                    30px 15px;
+
+            }
+
+
+            h1 {
+
+                font-size: 34px;
+
+            }
+
+
+            .envelope {
+
+                font-size: 55px;
+
+            }
+
+
+            .letter {
+
+                padding:
+                    40px 25px;
+
+            }
+
+
+            .letter p {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+
+            }
+
+
+            .special-message {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+
+            }
+
+
+            .greeting {
+
+                font-size: 21px;
+
+            }
+
+
+            .final-message {
+
+                font-size: 18px;
+
+            }
+
+
+            .ending {
+
+                padding:
+                    35px 20px;
+
+            }
+
+
+            .ending-heart {
+
+                font-size: 50px;
+
+            }
+
+
+            .ending h2 {
+
+                font-size: 25px;
+
+            }
+
+
+            .ending p {
+
+                font-size: 16px;
+
+            }
+
+
+            .ending strong {
+
+                font-size: 19px;
+
+            }
+
+
+            .the-end {
+
+                font-size: 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart one">
+        💖
+    </div>
+
+    <div class="heart two">
+        💕
+    </div>
+
+    <div class="heart three">
+        💗
+    </div>
+
+
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="envelope">
+
+            💌
+
+        </div>
+
+
+        <h1>
+
+            A Little Letter For Jaanu 💕
+
+        </h1>
+
+
+
+        <!-- LETTER -->
+
+        <div class="letter">
+
+
+            <!-- GREETING -->
+
+            <div class="greeting">
+
+                Dear Jaanu, 💕
+
+            </div>
+
+
+            <!-- PARAGRAPH 1 -->
+
+            <p>
+
+                Happy Birthday to one of the most
+                wonderful and precious people in my life. 🎂❤️
+
+            </p>
+
+
+            <!-- PARAGRAPH 2 -->
+
+            <p>
+
+                Honestly, I don't even know where to begin,
+                because there are so many things I want to
+                tell you today. Some feelings are simply
+                too big to fit into a few words, but I still
+                want to try.
+
+            </p>
+
+
+            <!-- PARAGRAPH 3 -->
+
+            <p>
+
+                Jaanu, you are not just my best friend.
+                You are someone who has become such a
+                beautiful and important part of my life.
+                Your presence has brought so many smiles,
+                laughs and unforgettable moments into
+                my life. 💖
+
+            </p>
+
+
+            <!-- MEMORIES -->
+
+            <p>
+
+                When I think about our friendship,
+                I think about all the little things —
+                our random conversations,
+                silly jokes,
+                crazy moments,
+                laughing for absolutely no reason,
+                and all those memories that only
+                we can truly understand. 😂💕
+
+                <br><br>
+
+                These moments may look small to
+                someone else, but they mean so much
+                to me.
+
+            </p>
+
+
+            <!-- SUPPORT -->
+
+            <div class="special-message">
+
+                🌸 <strong>Thank you for being there.</strong>
+
+                <br><br>
+
+                Thank you for listening to me,
+                understanding me,
+                supporting me,
+                and simply being someone I could
+                count on.
+
+                <br><br>
+
+                There were moments when I needed
+                someone beside me, and having you
+                as my best friend made those moments
+                a little easier.
+
+                <br><br>
+
+                I may not always say it,
+                but I truly appreciate you
+                more than you know. ❤️
+
+            </div>
+
+
+            <!-- SPECIAL FRIENDSHIP MESSAGE -->
+
+            <p>
+
+                One of my favorite things about us
+                is that we don't need everything to be
+                perfect to have a good time.
+
+                Even the simplest moments become
+                special when they are shared with you.
+
+                A random conversation can turn into
+                hours of laughter, and an ordinary day
+                can become a memory I'll remember
+                for a long time. 🌸
+
+            </p>
+
+
+            <!-- BIRTHDAY WISH -->
+
+            <p>
+
+                On your birthday, I genuinely wish
+                that life gives you everything your
+                heart desires.
+
+                <br><br>
+
+                I hope you achieve every dream
+                you're working towards.
+
+                <br><br>
+
+                I hope you find happiness in the
+                smallest things, confidence in
+                yourself, and courage to chase
+                everything you want.
+
+                ✨
+
+            </p>
+
+
+            <!-- FUTURE -->
+
+            <p>
+
+                I hope the coming years bring us
+                many more memories.
+
+                <br><br>
+
+                More laughter.
+
+                <br>
+
+                More crazy conversations.
+
+                <br>
+
+                More adventures.
+
+                <br>
+
+                More photographs.
+
+                <br>
+
+                More moments that we'll look back
+                at someday and say,
+
+                <br><br>
+
+                <em>
+                    "Remember when we did that?" 😂
+                </em>
+
+            </p>
+
+
+            <!-- EMOTIONAL MESSAGE -->
+
+            <div class="special-message">
+
+                💕 No matter where life takes us,
+                I hope you always remember that
+                you have a very special place in my heart.
+
+                <br><br>
+
+                Friendships like ours are rare,
+                and I'm genuinely grateful that
+                our paths crossed.
+
+                <br><br>
+
+                I don't know what the future holds,
+                but I do know that I will always
+                treasure the memories we've created
+                and the friendship we share.
+
+                <br><br>
+
+                Thank you for being <strong>you</strong>,
+                Jaanu. 🥹❤️
+
+            </div>
+
+
+            <!-- FINAL MESSAGE -->
+
+            <div class="final-message">
+
+                Happy Birthday once again,
+                my beautiful bestie! 🎂💖
+
+                <br><br>
+
+                May this year be filled with
+                happiness, love, success,
+                laughter and beautiful memories. ✨
+
+            </div>
+
+
+            <!-- SIGNATURE -->
+
+            <div class="signature">
+
+                With lots and lots of love, 💖
+
+                <br><br>
+
+                Your Best Friend 🌸
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FINAL ENDING -->
+
+        <div class="ending">
+
+
+            <div class="ending-heart">
+
+                💖
+
+            </div>
+
+
+            <h2>
+
+                This Is The End Of Our
+                Little Story 🌸
+
+            </h2>
+
+
+            <p>
+
+                But don't worry...
+
+                <br><br>
+
+                This may be the end of this little
+                website, but it is definitely not
+                the end of our friendship. 🥹❤️
+
+                <br><br>
+
+                There are still so many memories
+                to make, so many laughs to share,
+                so many crazy moments waiting for us,
+                and so many chapters still unwritten. ✨
+
+                <br><br>
+
+                <strong>
+                    Happy Birthday, Jaanu! 🎂💖
+                </strong>
+
+                <br><br>
+
+                I hope you always remember
+                how special you are to me. 🌷
+
+            </p>
+
+
+            <div class="final-hearts">
+
+                💕 💗 💕
+
+            </div>
+
+
+            <div class="the-end">
+
+                THE END ❤️
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
