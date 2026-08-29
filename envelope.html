@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Surprise 💌</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "Poppins", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.3), transparent 40%),
+                linear-gradient(135deg, #ffd6e7, #ffc1d9, #e8c7ff);
+
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        h1 {
+            color: #8e3158;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #7b405a;
+            font-size: 17px;
+            margin-bottom: 45px;
+        }
+
+        /* Envelope */
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin: auto;
+            cursor: pointer;
+
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: translateY(-8px);
+        }
+
+        .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #f78fb3;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(100, 40, 70, 0.25);
+        }
+
+        .letter-paper {
+            position: absolute;
+            width: 88%;
+            height: 85%;
+            left: 6%;
+            top: 8%;
+
+            background: #fffafa;
+            border-radius: 5px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #c24b78;
+            font-size: 20px;
+            font-weight: bold;
+
+            transition: transform 0.8s ease;
+            z-index: 2;
+        }
+
+        .front {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 55%;
+
+            background: #f26f9b;
+
+            clip-path: polygon(
+                0 0,
+                50% 65%,
+                100% 0,
+                100% 100%,
+                0 100%
+            );
+
+            z-index: 4;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 65%;
+
+            background: #fa9fbd;
+
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                50% 100%
+            );
+
+            transform-origin: top center;
+            transition: transform 0.9s ease;
+
+            z-index: 5;
+        }
+
+        /* Open animation */
+
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.open .letter-paper {
+            transform: translateY(-130px);
+        }
+
+        .envelope.open {
+            animation: openBounce 0.8s ease;
+        }
+
+        @keyframes openBounce {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Message */
+
+        .message {
+            opacity: 0;
+            transform: translateY(20px);
+            margin-top: 35px;
+
+            color: #8e3158;
+            font-size: 19px;
+            font-weight: 500;
+
+            transition: all 0.8s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tap-text {
+            margin-top: 25px;
+            color: #8e3158;
+            font-size: 16px;
+
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.45;
+            }
+        }
+
+        /* Hearts */
+
+        .heart {
+            position: absolute;
+            bottom: -30px;
+            font-size: 22px;
+            animation: floatHeart linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-duration: 7s;
+        }
+
+        .heart:nth-child(2) {
+            left: 25%;
+            animation-duration: 9s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 45%;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(4) {
+            left: 65%;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(5) {
+            left: 85%;
+            animation-duration: 7s;
+            animation-delay: 1.5s;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+                margin-bottom: 35px;
+            }
+
+            .envelope {
+                width: 250px;
+                height: 165px;
+            }
+
+            .letter-paper {
+                font-size: 17px;
+            }
+
+            .message {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+
+    <div class="heart">💗</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💞</div>
+    <div class="heart">💗</div>
+
+
+    <div class="container">
+
+        <h1>Something Special For You 💌</h1>
+
+        <div class="subtitle">
+            A little surprise is waiting inside...
+        </div>
+
+
+        <!-- Envelope -->
+
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+
+            <div class="back"></div>
+
+            <div class="letter-paper">
+                For Jaanu 💖
+            </div>
+
+            <div class="flap"></div>
+
+            <div class="front"></div>
+
+        </div>
+
+
+        <div class="tap-text" id="tapText">
+            👆 Tap the envelope
+        </div>
+
+
+        <div class="message" id="message">
+            💕 This letter is only for you...
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let opened = false;
+
+        function openEnvelope() {
+
+            if (opened) {
+                return;
+            }
+
+            opened = true;
+
+            const envelope = document.getElementById("envelope");
+            const message = document.getElementById("message");
+            const tapText = document.getElementById("tapText");
+
+            envelope.classList.add("open");
+
+            tapText.style.opacity = "0";
+
+            setTimeout(() => {
+                message.classList.add("show");
+            }, 600);
+
+
+            /*
+                After the envelope opens,
+                go to your EXISTING letter.html
+            */
+
+            setTimeout(() => {
+                window.location.href = "letter.html";
+            }, 3000);
+        }
+
+    </script>
+
+</body>
+</html>
